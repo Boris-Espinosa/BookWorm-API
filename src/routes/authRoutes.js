@@ -57,7 +57,8 @@ router.post("/register", async(req, res) => {
                 _id: newUser._id,
                 username: newUser.username,
                 email: newUser.email,
-                profileImage: newUser.profileImage
+                profileImage: newUser.profileImage,
+                createdAt: newUser.createdAt,
             }
         })
 
