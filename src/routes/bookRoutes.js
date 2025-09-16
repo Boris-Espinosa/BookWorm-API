@@ -73,10 +73,15 @@ router.delete("/:id", protectRoute, async (req, res) => {
         }
 
         //delete image from cloudinary
-        if (!book.coverImage && book.coverImage.includes("Cloudinary")) {
+        if (book.coverImage && book.coverImage.includes("cloudinary")) {
             try {
-                const publicId = book.coverImage.split("/").pop().split(".")[0]
+                const urlParts = book.coverImage.split("/")
+                const publicIdWithExtension = urlParts[urlParts.length - 1]
+                const publicId = publicIdWithExtension.split(".")[0]
+                
+                console.log("Eliminando imagen de Cloudinary:", publicId)
                 await cloudinary.uploader.destroy(publicId)
+                console.log("Imagen eliminada exitosamente de Cloudinary")
             } catch (error) {
                 console.log("Error deleting image from Cloudinary:", error)
             }
@@ -85,10 +90,10 @@ router.delete("/:id", protectRoute, async (req, res) => {
         //delete book from database
         await book.deleteOne()
 
-        res.json({ message: "Book deleted successfully" })
-        return res.status(200).json({ message: "Book deleted successfully" })
+        res.status(200).json({ message: "Book deleted successfully" })
     } catch (error) {
-        
+        console.log("Error deleting book:", error)
+        return res.status(500).json({ message: "Server error" })
     }
 })
 
