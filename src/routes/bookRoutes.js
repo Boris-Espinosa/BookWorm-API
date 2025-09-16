@@ -78,10 +78,8 @@ router.delete("/:id", protectRoute, async (req, res) => {
                 const urlParts = book.coverImage.split("/")
                 const publicIdWithExtension = urlParts[urlParts.length - 1]
                 const publicId = publicIdWithExtension.split(".")[0]
-                
-                console.log("Eliminando imagen de Cloudinary:", publicId)
+            
                 await cloudinary.uploader.destroy(publicId)
-                console.log("Imagen eliminada exitosamente de Cloudinary")
             } catch (error) {
                 console.log("Error deleting image from Cloudinary:", error)
             }
