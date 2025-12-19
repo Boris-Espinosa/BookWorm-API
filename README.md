@@ -8,6 +8,8 @@
 
 ## 🇬🇧 English
 
+> **📚 Bootcamp Project**: This project was developed as part of a React Native bootcamp to learn full-stack mobile application development.
+
 ### 📖 Description
 
 BookWorm API is a RESTful backend service for managing a personal book library. It allows users to register, authenticate, and manage their book collection with features like adding books with cover images, rating them, and discovering books from other users.
@@ -235,6 +237,8 @@ Boris Espinosa
 <a name="español"></a>
 
 ## 🇪🇸 Español
+
+> **📚 Proyecto de Bootcamp**: Este proyecto fue desarrollado como parte de un bootcamp de React Native para aprender desarrollo full-stack de aplicaciones móviles.
 
 ### 📖 Descripción
 
